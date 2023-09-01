@@ -30,7 +30,7 @@ CLEVER-BANK WEB APP
 
 - Инстркция по запуску проекта
 
-Скачать Docker image "clever-bank" и запустить в командной строке (docker run -p 8080:8080 clever-bank) 
+Запустить docker image docker run clever-bank) 
 
 Пример использования:
 
@@ -98,7 +98,7 @@ CLEVER-BANK WEB APP
 
          Пополнить
 
-9. Снятие средств http://localhost:8080/my-accounts/withdraw/account?id=1
+9. Снятие средств 
 
          Снять средства
          Счёт для снятия:        BY01IRON51928966927063115235

@@ -61,12 +61,12 @@ public final class UserDao {
     }
 
     public List<UserEntity> findAll() {
-        List<UserEntity> UserList = new ArrayList<>();
+        List<UserEntity> userList = new ArrayList<>();
         try (Connection connection = ConnectionPool.open();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                UserList.add(UserEntity.builder()
+                userList.add(UserEntity.builder()
                         .id(resultSet.getLong("id"))
                         .fullName(resultSet.getString("full_name"))
                         .email(resultSet.getString("email"))
@@ -76,7 +76,7 @@ public final class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return UserList;
+        return userList;
     }
 
     public Optional<UserEntity> update(UserEntity user) {

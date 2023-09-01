@@ -57,14 +57,14 @@ public class AccountDao {
     }
 
     public List<AccountEntity> findAllByClient(Long id, String bank) {
-        List<AccountEntity> AccountList = new ArrayList<>();
+        List<AccountEntity> accountList = new ArrayList<>();
         try (Connection connection = ConnectionPool.open();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_BY_CLIENT)) {
             preparedStatement.setLong(1, id);
             preparedStatement.setString(2, bank);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                AccountList.add(AccountEntity.builder()
+                accountList.add(AccountEntity.builder()
                         .id(resultSet.getLong("id"))
                         .account(TypeAccount.valueOf(resultSet.getString("account_type")))
                         .currency(TypeCurrency.valueOf(resultSet.getString("currency")))
@@ -80,16 +80,16 @@ public class AccountDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return AccountList;
+        return accountList;
     }
 
     public List<AccountEntity> findAll() {
-        List<AccountEntity> AccountList = new ArrayList<>();
+        List<AccountEntity> accountList = new ArrayList<>();
         try (Connection connection = ConnectionPool.open();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                AccountList.add(AccountEntity.builder()
+                accountList.add(AccountEntity.builder()
                         .id(resultSet.getLong("id"))
                         .account(TypeAccount.valueOf(resultSet.getString("account_type")))
                         .currency(TypeCurrency.valueOf(resultSet.getString("currency")))
@@ -102,7 +102,7 @@ public class AccountDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return AccountList;
+        return accountList;
     }
 
     public Optional<AccountEntity> update(AccountEntity account) {

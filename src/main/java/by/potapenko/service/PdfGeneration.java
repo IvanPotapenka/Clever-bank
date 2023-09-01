@@ -41,13 +41,12 @@ public class PdfGeneration {
     private final PdfPTable table = new PdfPTable(2);
     private final Document document = new Document();
     private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-    private final String FONT = FONT_PATH;
+    private final String font = FONT_PATH;
 
     public ByteArrayOutputStream createPdfToCheque(TransactionEntity transaction) {
 
-
         try {
-            BaseFont arial = BaseFont.createFont(FONT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            BaseFont arial = BaseFont.createFont(font, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
             Font font = new Font(arial, 10, Font.NORMAL);
             PdfWriter.getInstance(document, byteArrayOutputStream);
             document.open();
@@ -61,7 +60,7 @@ public class PdfGeneration {
             addRow(table, font, transaction.getTime().toString());
 
             addRow(table, font, TYPE_TRANSACTION);
-            addRow(table, font, transaction.getType().getTITLE());
+            addRow(table, font, transaction.getType().getTitle());
 
             addRow(table, font, BANK_SEND);
             addRow(table, font, transaction.getAccountSend().getBank().getBankName().getTitle());
@@ -89,7 +88,7 @@ public class PdfGeneration {
     public ByteArrayOutputStream createPdfToStatement(AccountEntity account, String dateFrom, String dateTo) {
         PdfPTable tableTransaction = new PdfPTable(3);
         try {
-            BaseFont arial = BaseFont.createFont(FONT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            BaseFont arial = BaseFont.createFont(font, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
             Font font = new Font(arial, 10, Font.NORMAL);
             PdfWriter.getInstance(document, byteArrayOutputStream);
             document.open();
@@ -148,7 +147,7 @@ public class PdfGeneration {
     private static void addRowTransaction(List<TransactionEntity> transaction, PdfPTable table, Font font) {
         for (TransactionEntity transactionEntity : transaction) {
             addRow(table, font, transactionEntity.getDate().toString());
-            addRow(table, font, transactionEntity.getType().getTITLE());
+            addRow(table, font, transactionEntity.getType().getTitle());
             addRow(table, font, transactionEntity.getAmount().toString());
         }
     }

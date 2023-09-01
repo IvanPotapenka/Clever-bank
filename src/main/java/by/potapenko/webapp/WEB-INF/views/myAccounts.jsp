@@ -38,7 +38,7 @@
         </tr>
         <tr>
             <td>Тип счёта</td>
-            <td>${account.account.getTITLE()}</td>
+            <td>${account.account.getTitle()}</td>
         </tr>
         <tr>
             <td>Валюта</td>

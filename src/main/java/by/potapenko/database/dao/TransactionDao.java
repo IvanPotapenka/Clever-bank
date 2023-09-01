@@ -146,13 +146,13 @@ public class TransactionDao {
         return transactions;
     }
 
-    public List<TransactionEntity> findAllByAccountAndDate(Long id, String dateFrom, String date_to) {
+    public List<TransactionEntity> findAllByAccountAndDate(Long id, String dateFrom, String dateTo) {
         List<TransactionEntity> transactions = new ArrayList<>();
         try (Connection connection = ConnectionPool.open();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_BY_ACCOUNT_AND_DATE)) {
             preparedStatement.setLong(1, id);
             preparedStatement.setString(2, dateFrom);
-            preparedStatement.setString(3, date_to);
+            preparedStatement.setString(3, dateTo);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 transactions.add(TransactionEntity.builder()

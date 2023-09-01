@@ -71,7 +71,7 @@
         <c:forEach var="transaction" items="${transactions}">
             <tr>
                 <td>${transaction.date}</td>
-                <td>${transaction.type.getTITLE()}</td>
+                <td>${transaction.type.getTitle()}</td>
                 <td>${transaction.amount}</td>
             </tr>
 

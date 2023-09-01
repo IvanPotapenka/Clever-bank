@@ -88,12 +88,15 @@
         </module>
 
 
-
         <!-- Checks for Naming Conventions.                  -->
         <!-- See http://checkstyle.sf.net/config_naming.html -->
+        <module name="ConstantName"/>
         <module name="LocalFinalVariableName"/>
+        <module name="LocalVariableName"/>
+<!--        <module name="MemberName"/>-->
         <module name="MethodName"/>
         <module name="PackageName"/>
+        <module name="ParameterName"/>
         <module name="StaticVariableName"/>
         <module name="TypeName"/>
 
@@ -181,7 +184,7 @@
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
         <module name="MagicNumber">
-            <property name="ignoreNumbers" value="-1, 0, 0.5, 1, 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,20, 30000, 100"/>
+            <property name="ignoreNumbers" value="-1, 0, 0.5, 30000, 1, 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, 20, 100"/>
             <property name="ignoreHashCodeMethod" value="true"/>
             <property name="ignoreAnnotation" value="true"/>
         </module>

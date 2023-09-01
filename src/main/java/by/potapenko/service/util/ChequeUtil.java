@@ -4,10 +4,10 @@ public class ChequeUtil {
     public static final String CHEQUE_PREFIX = "Чек №";
     public static final String STATEMENT_PREFIX = "Выписка по счёту №";
     public static final String SUFFIX = ".pdf";
-    public static final String FONT_PATH = "C:\\Users\\Clever-Bank\\src\\main\\resources\\font\\arial.ttf";
-    public static final String INTEREST_PATH = "C:\\Users\\Clever-Bank\\src\\main\\resources\\config.yml";
-    public static final String CHEQUE_FILE_PATH = "C:\\Users\\Clever-Bank\\check\\" + CHEQUE_PREFIX;
-    public static final String STATEMENT_FILE_PATH = "C:\\Users\\Clever-Bank\\statement\\" + STATEMENT_PREFIX;
+    public static final String FONT_PATH = "C:\\clever-bank\\src\\main\\resources\\font\\arial.ttf";
+    public static final String CONFIG = "C:\\clever-bank\\src\\main\\resources\\config.yml";
+    public static final String CHEQUE_FILE_PATH = "C:\\clever-bank\\check\\" + CHEQUE_PREFIX;
+    public static final String STATEMENT_FILE_PATH = "C:\\clever-bank\\statement\\" + STATEMENT_PREFIX;
     public static final String CHEQUE_TITLE = "Банковский чек";
     public static final String STATEMENT_TITLE = "Выписка";
     public static final String CHEQUE_NUMBER = "Чек:";

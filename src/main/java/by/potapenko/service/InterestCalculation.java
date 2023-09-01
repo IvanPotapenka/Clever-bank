@@ -13,17 +13,17 @@ import java.time.LocalDate;
 import java.util.Map;
 import java.util.TimerTask;
 
-import static by.potapenko.service.util.ChequeUtil.INTEREST_PATH;
+import static by.potapenko.service.util.ChequeUtil.CONFIG;
 
 public class InterestCalculation extends TimerTask {
     private final AccountService accountService = AccountService.getInstance();
-    private final InputStream inputStream;
+    private InputStream inputStream;
 
     {
         try {
-            inputStream = new FileInputStream(INTEREST_PATH);
+            inputStream = new FileInputStream(CONFIG);
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 

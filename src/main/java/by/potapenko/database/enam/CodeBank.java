@@ -12,6 +12,6 @@ public enum CodeBank {
     TECNBY22("TECN"),
     ALFABY2X("ALFA");
 
-    private final String TITLE;
+    private final String title;
 }
 

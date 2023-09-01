@@ -22,7 +22,7 @@ public class BankDao {
 
     private static final BankDao INSTANCE = new BankDao();
 
-    private static final String INSERT_Bank = "INSERT INTO bank(name, code) VALUES (?,?)";
+    private static final String INSERT_BANK = "INSERT INTO bank(name, code) VALUES (?,?)";
 
     private static final String SELECT_BY_BANK = "SELECT * FROM bank WHERE name=?";
 
@@ -30,14 +30,14 @@ public class BankDao {
 
     private static final String DELETE_BY_ID = "DELETE FROM bank WHERE id=?";
 
-    private static final String UPDATE_Bank = "UPDATE bank SET name=?, code=? WHERE  id=?";
+    private static final String UPDATE_BANK = "UPDATE bank SET name=?, code=? WHERE  id=?";
 
     public Optional<BankEntity> create(BankEntity bank) {
         try (Connection connection = ConnectionPool.open();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     INSERT_Bank, Statement.RETURN_GENERATED_KEYS)) {
+                     INSERT_BANK, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, bank.getBankName().getTitle());
-            preparedStatement.setString(2, bank.getCode().getTITLE());
+            preparedStatement.setString(2, bank.getCode().getTitle());
             preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -69,12 +69,12 @@ public class BankDao {
 
 
     public List<BankEntity> findAll() {
-        List<BankEntity> BankList = new ArrayList<>();
+        List<BankEntity> bankList = new ArrayList<>();
         try (Connection connection = ConnectionPool.open();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                BankList.add(BankEntity.builder()
+                bankList.add(BankEntity.builder()
                         .id(resultSet.getLong("id"))
                         .bankName(Bank.valueOf(resultSet.getString("name")))
                         .code(CodeBank.valueOf(resultSet.getString("code")))
@@ -83,7 +83,7 @@ public class BankDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return BankList;
+        return bankList;
     }
 
     public void deleteById(Long id) {
@@ -98,9 +98,9 @@ public class BankDao {
 
     public Optional<BankEntity> update(BankEntity bank) {
         try (Connection connection = ConnectionPool.open();
-             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_Bank)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_BANK)) {
             preparedStatement.setString(1, bank.getBankName().getTitle());
-            preparedStatement.setString(2, bank.getCode().getTITLE());
+            preparedStatement.setString(2, bank.getCode().getTitle());
             preparedStatement.setLong(3, bank.getId());
             preparedStatement.executeUpdate();
             return Optional.of(bank);

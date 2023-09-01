@@ -9,5 +9,5 @@ public enum TypeTransaction {
     REPLENISHMENT("Пополнение"),
     WITHDRAWAL("Снятие средств"),
     TRANSFER("Перевод");
-    private final String TITLE;
+    private final String title;
 }

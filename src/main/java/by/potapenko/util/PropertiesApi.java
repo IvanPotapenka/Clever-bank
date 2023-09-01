@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 @UtilityClass
-public class PropertiesApi {
+public final class PropertiesApi {
     private final Properties PROPERTIES = new Properties();
 
     static {

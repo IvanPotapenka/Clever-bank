@@ -26,7 +26,7 @@ public class AccountService {
         for (int i = 0; i < 2; i++) {
             iban.append(random.nextInt(10));
         }
-        iban.append(bank.getCode().getTITLE());
+        iban.append(bank.getCode().getTitle());
         for (int i = 0; i < 20; i++) {
             iban.append(random.nextInt(10));
         }

@@ -8,5 +8,5 @@ import lombok.Getter;
 public enum TypeAccount {
     CARD("Расчётный"),
     DEPOSIT("Сберегательный");
-    private final String TITLE;
+    private final String title;
 }
