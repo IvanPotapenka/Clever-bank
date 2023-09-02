@@ -30,7 +30,8 @@ CLEVER-BANK WEB APP
 
 - Инстркция по запуску проекта
 
-Запустить docker image docker run clever-bank) 
+1. Скачать проект и разархивировать в корень диска С.
+2. Запустить docker image командой "docker run clever-bank" 
 
 Пример использования:
 
