@@ -6,6 +6,7 @@ import lombok.experimental.UtilityClass;
 import java.io.InputStream;
 import java.util.Properties;
 
+
 @UtilityClass
 public final class PropertiesApi {
     private final Properties PROPERTIES = new Properties();
@@ -19,9 +20,9 @@ public final class PropertiesApi {
     }
 
     @SneakyThrows
-    private static void loadProperties() {
-        try (InputStream inputStream = PropertiesApi.class.getClassLoader().getResourceAsStream(
-                "datasource.properties")) {
+    private void loadProperties() {
+        try (InputStream inputStream = PropertiesApi.class.getClassLoader()
+                .getResourceAsStream("datasource.properties")) {
             PROPERTIES.load(inputStream);
         }
     }

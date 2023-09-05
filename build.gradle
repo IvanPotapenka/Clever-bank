@@ -8,6 +8,7 @@
 plugins {
     id 'java'
     id 'idea'
+    id 'checkstyle'
     id 'java-library'
     id 'maven-publish'
 }
@@ -18,9 +19,11 @@ idea {
     project {
         languageLevel = 17
     }
+    module {
+        inheritOutputDirs(true)
+    }
 }
 
-apply plugin: 'checkstyle'
 
 checkstyle {
     toolVersion '7.8.1'
@@ -41,7 +44,7 @@ dependencies {
     implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '2.0.0'
     implementation group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13.3'
     implementation group: 'org.yaml', name: 'snakeyaml', version: '2.2'
-    implementation group: 'org.postgresql', name: 'postgresql', version: '42.6.0'
+    runtimeOnly group: 'org.postgresql', name: 'postgresql', version: '42.6.0'
     compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.0.0'
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.26'
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.26'

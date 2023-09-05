@@ -17,6 +17,7 @@ public class ConnectionPool {
     private final String DRIVER_KEY = "db.driver";
     private final String POOL_SIZE_KEY = "db.pool.size";
 
+
     static {
         PoolProperties poolProperties = new PoolProperties();
         poolProperties.setUsername(PropertiesApi.get(USER_KEY));
@@ -26,6 +27,7 @@ public class ConnectionPool {
         poolProperties.setMaxActive(Integer.parseInt(PropertiesApi.get(POOL_SIZE_KEY)));
         DATA_SOURCE = new DataSource(poolProperties);
     }
+
     @SneakyThrows
     public Connection open() {
         return DATA_SOURCE.getConnection();

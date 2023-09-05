@@ -14,6 +14,5 @@ public class PagesUtil {
     public static final String WITHDRAW = PREFIX + "withdraw.jsp";
     public static final String TRANSFER = PREFIX + "transfer.jsp";
     public static final String ACCOUNT_STATEMENT = PREFIX + "accountStatement.jsp";
-    public static final String ACCOUNT_UPDATE = PREFIX + "accountUpdate.jsp";
 
 }
